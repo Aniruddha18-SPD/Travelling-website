@@ -107,45 +107,6 @@ body{
      -webkit-text-decoration-line: line-through; /* Safari */
      text-decoration-line: line-through; 
   }
-  .book .heading2{
-    text-align:center;
-    font-size:2.2rem;
-    color:orange;
-  }
-  .book .explanation{
-    font-size:1.5rem;
-    text-align:center;
-    color:orange;
-    padding-left:25%;
-    padding-right:25%;
-    
-  }
-  .book .book_now .element1 img{
-      width:  200px;
-      height: 200px;
-      object-fit: cover;
-  }
-  .book .book_now .element1 .content i{
-    font-size:2rem;
-  }
-  .book .booking{
-    display:flex;
-    flex-wrap:wrap;
-    gap:1rem;
-    padding-left:10px;
-  }
-  
-  
-  .book .booking .book_now{
-    box-shadow: 0 1rem 2rem white;
-    padding:25px;
-    
-  }
-  .book .booking .book_now img{ 
-      width:  200px;
-      height: 200px;
-      object-fit: cover;
-  }
   hr { 
       display: block;
       margin-top: 0.5em;
