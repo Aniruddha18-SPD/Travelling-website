@@ -15,21 +15,18 @@ body{
     border:none;
     text-decoration: none;
     transition:all .4s linear;
-  
   }
   section{
     padding:0rem 9%;
   }
-  
   .heading{
     text-align: center;
     padding:2.5rem 0
-  
   }
   .heading span{
     font-size:3.5 rem;
     background:#4e9ca3;
-    color:var(--orange);
+    color:orange;
     border-radius: .5rem;
     padding: .1rem 0.5rem;
     display: inline block;
@@ -45,19 +42,16 @@ body{
     display:flex;
     flex-wrap:wrap;
     gap:1rem;
+    padding-left:40px;
   }
   .packages .box-container .box{
-    box-shadow: 0 1rem 2rem grey;
-    
+    box-shadow: 0 1rem 2rem white; 
   }
-  
   .packages .box-container .box img{
       width:  200px;
       height: 200px;
       object-fit: cover;
   }
-  
-  
   .packages .box-container .box .content{
     padding:0.1rem;
   }
@@ -65,19 +59,13 @@ body{
     font-size:100 px;
     color:orange;
   }
-  .packages .box-container .box .content h2 i{
-    color:red;
-  }
+  
   .packages .box-container .box .content p{
     font-size:2 rem;
     color:#666;
     padding:0.2rem 0;
   }
-  .packages .box-container .box .content .stars i{
-    font-size:3 rem;
-    color:var(--orange);
-    padding:0.2rem 0;
-  }
+  
   .packages .box-container .box .content .price{
     font-size:1.3rem;
     color:orange;
@@ -104,8 +92,43 @@ body{
     color: orange;
   }
   .price span{
-     -webkit-text-decoration-line: line-through; /* Safari */
+     -webkit-text-decoration-line: line-through; 
      text-decoration-line: line-through; 
+  }
+  .book .heading2{
+    text-align:center;
+    font-size:2.2rem;
+    color:orange;
+  }
+  .book .explanation{
+    font-size:1.5rem;
+    text-align:center;
+    color:orange;
+    padding-left:25%;
+    padding-right:25%;
+    
+  }
+  .book .book_now .element1 img{
+      width:  200px;
+      height: 200px;
+      object-fit: cover;
+  
+  }
+  .book .booking{
+    display:flex;
+    flex-wrap:wrap;
+    gap:2rem;
+    padding-left:20px;
+  }
+  .book .booking .book_now{
+    box-shadow: 0 1rem 2rem white;
+    padding:25px;
+    
+  }
+  .book .booking .book_now img{ 
+      width:  200px;
+      height: 200px;
+      object-fit: cover;
   }
   hr { 
       display: block;
@@ -115,7 +138,7 @@ body{
       margin-right: auto;
       border-style: inset;
       border-width: 0.1px;
-  border-color:lightcyan;
+      border-color:lightcyan;
   } 
   .book .booking .book_now .content  p{
     
