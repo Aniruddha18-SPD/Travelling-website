@@ -2,9 +2,8 @@ body{
     background-color:#a9d3f9;
   }
   :root{
-    --orange:black;
+    --black:black;
   }
-  
   *{
     font-family: "Nunito",sans-serif;
     margin: 0;
@@ -33,63 +32,6 @@ body{
   }
   .heading span.space{
     background:none;
-  }
-  html{
-    font-size: 1rem;
-    overflow-x:hidden;
-  }
-  .book .heading2{
-    text-align:center;
-    font-size:2.2rem;
-    color:#181617;
-  }
-  .book .explanation{
-    font-size:1.5rem;
-    text-align:center;
-    color:#181617;
-    padding-left:25%;
-    padding-right:25%;
-    
-  }
-  .book .book_now .element1 img{
-      width:  200px;
-      height: 200px;
-      object-fit: cover;
-  
-  }
-  .book .booking{
-    display:flex;
-    flex-wrap:wrap;
-    gap:2rem;
-    padding-left:20px;
-  }
-  .book .booking .book_now{
-    box-shadow: 0 1rem 2rem whitesmoke;
-    padding:25px;
-    
-  }
-  .book .booking .book_now img{ 
-      width:  200px;
-      height: 200px;
-      object-fit: cover;
-  }
-  hr { 
-      display: block;
-      margin-top: 0.5em;
-      margin-bottom: 0.5em;
-      margin-left: auto;
-      margin-right: auto;
-      border-style: inset;
-      border-width: 0.1px;
-      border-color:lightcyan;
-  } 
-  .book .booking .book_now .content  p{
-    text-align: center;
-    padding:1 rem;
-  }
-  .book .booking .book_now .content  h2{
-    text-align: center;
-    padding:1 rem;
   }
   .packages .box-container{
     display:flex;
@@ -135,10 +77,8 @@ body{
     text-align: center;
     font-size:1 rem;
     background:orange;
-    color:var(--orange);
     border-radius: .3rem;
     padding-top: 0.1rem;
-    display: inline block;
     padding:0.2rem 0;
   }
   .checked {
@@ -148,7 +88,46 @@ body{
      -webkit-text-decoration-line: line-through; 
      text-decoration-line: line-through; 
   }
- 
+  .book .heading2{
+    text-align:center;
+    font-size:2.2rem;
+    color:#181617;
+  }
+  .book .explanation{
+    font-size:1.5rem;
+    text-align:center;
+    color:#181617;
+    padding-left:25%;
+    padding-right:25%; 
+  }
+  .book .book_now .element1 img{
+      width:  200px;
+      height: 200px;
+      object-fit: cover;
+  }
+  .book .booking{
+    display:flex;
+    flex-wrap:wrap;
+    gap:2rem;
+    padding-left:20px;
+  }
+  .book .booking .book_now{
+    box-shadow: 0 1rem 2rem whitesmoke;
+    padding:25px;  
+  }
+  .book .booking .book_now img{ 
+      width:  200px;
+      height: 200px;
+      object-fit: cover;
+  }
+  .book .booking .book_now .content  p{
+    text-align: center;
+    padding:1 rem;
+  }
+  .book .booking .book_now .content  h2{
+    text-align: center;
+    padding:1 rem;
+  }
   .Contact .Email{
     font-size:20px;
     text-align:center;
