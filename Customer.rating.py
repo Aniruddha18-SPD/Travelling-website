@@ -1,5 +1,6 @@
 from Packages import Packages
 class Rating:
+    '''Here the customer can add rating to the package that he/she took and give the package stars in between 1 to 5'''
     def __init__(self,package,cus_id,rating):
         if cus_id not in Packages.packages_for_customers:
             raise ValueError('The customer ID should be available.')
