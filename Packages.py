@@ -24,4 +24,4 @@ class Packages:
             return 'The package name should be a string'
         if (self.packages.__contains__(remove_package)):
             self.packages.remove(remove_package)
-        
+    
