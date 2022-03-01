@@ -1,5 +1,6 @@
 from Packages import Packages
 class Rating:
+    Rating_for_packages={}
     '''Here the customer can add rating to the package that he/she took and give the package stars in between 1 to 5'''
     def __init__(self,package,cus_id,rating):
         if cus_id not in Packages.packages_for_customers:
@@ -21,4 +22,5 @@ class Rating:
         if newRating<0 or newRating>5:
             raise ValueError('The rating should be in between 1 and 5.')
         self.rating=newRating
+        Rating.Rating_for_packages[self.cus_id]=(self.package,newRating)
         
