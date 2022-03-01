@@ -1,4 +1,5 @@
 ''' define Signup class'''
+from packages_available_with_us import CLI_packing
 class Signup:
     customers_information = {}
     customers_account = {}
@@ -25,6 +26,7 @@ class Signup:
             if self.customers_account[customer_username] == customer_password:
                 print("You successfully logged in. Let's go and find the best packages.")
                 # find_package()
+                CLI_packing(customer_username)
             else:
                 print("You have either typed wrong credentials or have not signed up yet!" )
 
