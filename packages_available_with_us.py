@@ -10,6 +10,7 @@ class CLI_packing:
         user_choice_price=input('What is your budget?')
         this_package=Packages(customer_username,user_choice_package_name,user_choice_package_type,user_choice_number_of_people,user_choice_price)
         print(f'You have selected this package-,{this_package}')
+        print(f'Please make a payment and proceed to checkout!')
         
     def want_to_add_rating(self,customer_id):
         pack=input('Which package do you want to rate? ')
