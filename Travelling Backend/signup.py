@@ -1,6 +1,6 @@
 ''' define Signup class'''
 from user import User 
-from packages_available_with_us import CLI_packing
+from packages_available_with_us import CLI_packing    ## from packages_available_with_us import *
 class Signup:
     customers_information = {}
     customers_account = {}
