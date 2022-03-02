@@ -6,6 +6,10 @@ class Checkout():
                                                                 # packages with package selection is necessary. 
         self.signup_dict = signup_dictionary
         self.packages_dict = packages_dictionary  #if dict or not can be tested 
+        if type(self.signup_dict) != dict:
+            raise TypeError("The input must be a dictionary")
+        
+
     
     
     ''' 
@@ -23,6 +27,14 @@ class Checkout():
     def check_validity(self, num):                                                   # this function adds every digit of the card number to a list and,
         validlist=[]
         credit_check = False
+        num =  int(num)
+        if type(num) != int:
+            raise TypeError("The input must be a number")
+
+        if num <= 0 or len(str(num)) > 16:
+            raise ValueError("Number can't be negative and the length can't be greater than 16")         
+        
+        num =  str(num)
         #while not credit_check:
         for i in num:
             validlist.append(int(i))
@@ -62,6 +74,8 @@ class Checkout():
         return card_num
 
     def billing(self):
+        ''' waiting on code to print receipt '''        
+        
         total_val = 0
 
         # create a company name and information
@@ -117,6 +131,6 @@ class Checkout():
     # if check_validity(num) == True:
     #     billing()
 
-# checkout = Checkout("apple", "banana")
+# checkout = Checkout({}, {})
 # hold = checkout.cardnumber()
-# print(checkout.check_validity(hold))    to check if cardnumber() and check_validity() work
+# print(checkout.check_validity(hold))    # to check if cardnumber() and check_validity() work
