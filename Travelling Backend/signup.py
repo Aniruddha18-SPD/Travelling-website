@@ -1,6 +1,8 @@
 ''' define Signup class'''
 from user import User 
-from packages_available_with_us import CLI_packing    ## from packages_available_with_us import *
+from CLI_packing import CLI_packing
+
+    ## from packages_available_with_us import *
 class Signup:
     customers_information = {}
     customers_account = {}
@@ -28,8 +30,9 @@ class Signup:
             customer_password = input("Enter your password: ")
             if self.customers_account[customer_username] == customer_password:
                 print("You successfully logged in. Let's go and find the best packages.")
+                k=CLI_packing(customer_username,customer_password)
+                k.book_package(customer_username)
                 # find_package()
-                CLI_packing(customer_username)
             else:
                 print("You have either typed wrong credentials or have not signed up yet!" )
 
@@ -47,8 +50,9 @@ class Signup:
             print("You successfully created your account")
           
             self.customers_account[customer_new_username]= customer_new_password
-            CLI_packing(customer_username)
             # print(self.customers_account)
+            k=CLI_packing(customer_new_username,customer_new_password)
+            k.book_package(customer_new_username)
             # find_package()
 signup1 = Signup()
 # print(signup1.customers_account)

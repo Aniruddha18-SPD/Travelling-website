@@ -1,12 +1,10 @@
-from signup import Signup
+
 from user import User
 class Packages:
     '''I am trying to make a dictionary and store id of customer with his package. I am keeping track of all the packages of the customer. Customer can add a new package or remove one.'''
     packages_for_customers={}
     packages_available=[]
     def __init__(self,customer_username,package_name,package_type,number_of_people,price):
-        if (type(package_name) is not str) or (type(package_type) is not str) or (type(number_of_people) is not int) or (type(price) is not int):
-            raise TypeError('Name and type of packages should be in string and number of people and price should be a integer.')
         self.package_name=package_name
         self.customer_username=customer_username
         self.package_type=package_type

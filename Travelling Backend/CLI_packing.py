@@ -1,11 +1,15 @@
 from Packages import Packages
-from signup import Signup
+
 from Customer_rating import Rating
 from Packages_available_with_us import packages_available_with_us
 from Checkout import Checkout
 from user import User
 class CLI_packing:
-    def __init__(self,customer_username):
+    def __init__(self,customer_username,customer_id):
+        self.customer_username=customer_username
+        self.customer_id=customer_id
+
+    def book_package(self,customer_username):
         print(f'WELCOME TO THE ADVENTURE NEPAL!!!,{customer_username}'+ '\n'+ 'What kind of packages do you like to get?'+'\n+NATURAL'+'\n+CULTURAL'+'\n+ADVENTUROUS'+'\n'+'Name the place you would love to visit!')
         user_choice_package_name=input('Enter the name of place you would like to visit in Nepal: ')
         user_choice_package_type=input('Enter the package type you want:Natural/Cultural/Adventurous')
@@ -19,9 +23,9 @@ class CLI_packing:
             print(f'We have the package available with us,{this_package.package_name}')
             if this_package.price<packages_available_with_us[this_package.package_name][0] or this_package.price>packages_available_with_us[this_package.package_name][1]:
                 print(f'We do not have the package available for your price.')
+        print(f'Please make a payment and proceed to checkout!')
         Checkout(User.users[customer_username], Packages.packages_for_customers[User.users[customer_username]])
         
-        print(f'Please make a payment and proceed to checkout!')
         
     def want_to_add_rating(self,customer_id):
         pack=input('Which package do you want to rate? ')
@@ -30,3 +34,4 @@ class CLI_packing:
         print(f'Thanks for rating,{pack} {rating}')
 
 
+#CLI_packing_for_user=CLI_packing(customer_username,customer_password)
