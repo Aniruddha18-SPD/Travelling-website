@@ -1,20 +1,23 @@
 ''' define Signup class'''
+from user import User 
 from packages_available_with_us import CLI_packing
 class Signup:
     customers_information = {}
     customers_account = {}
     
     def __init__(self):
-        self.current_user_first = input("Enter your first name: ")
-        self.current_user_second = input("Enter your second name: ")
-        self.full_name = self.current_user_first +" "+ self.current_user_second
+        current_user_first = input("Enter your first name: ")
+        current_user_second = input("Enter your second name: ")
+        self.full_name = current_user_first +" "+ current_user_second
         print(f'Welcome to the Lap of Himalayas, {self.full_name}!')
-        self.current_user_nationality = input("Enter your nationality: ")
-        self.current_user_age = input("Enter you age: ")
-        self.current_user_gender = input("Enter your gender: ")
-        self.customers_information[self.full_name] = [self.current_user_nationality, self.current_user_age, self.current_user_gender]
+        current_user_nationality = input("Enter your nationality: ")
+        current_user_age = input("Enter you age: ")
+        current_user_gender = input("Enter your gender: ")
+        self.current_user = User(current_user_first, current_user_second, current_user_nationality, current_user_age, current_user_gender)
 
-        # print(self.customers_information)
+        self.customers_information[self.full_name] = [current_user_nationality, current_user_age, current_user_gender]
+
+
 
     
     def create_account(self):
@@ -44,7 +47,8 @@ class Signup:
             print("You successfully created your account")
           
             self.customers_account[customer_new_username]= customer_new_password
-            print(self.customers_account)
+            CLI_packing(customer_username)
+            # print(self.customers_account)
             # find_package()
 signup1 = Signup()
 # print(signup1.customers_account)
