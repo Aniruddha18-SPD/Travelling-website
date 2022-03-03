@@ -1,5 +1,5 @@
 ''' define Signup class'''
-from user import User 
+from user import *
 from CLI_packing import CLI_packing
 
     ## from packages_available_with_us import *
@@ -35,25 +35,28 @@ class Signup:
                 # find_package()
             else:
                 print("You have either typed wrong credentials or have not signed up yet!" )
+                
+
 
            
         else:
             username = True
             while username:
-                customer_new_username = input("Enter your email: ")
-                if customer_new_username in self.customers_account:
+                customer_username = input("Enter your email: ")
+                if customer_username in self.customers_account:
                     print("This email already exists.")
                     username = True
                 else:
                     username = False
-            customer_new_password = input("Enter your password: ")
+            customer_password = input("Enter your password: ")
             print("You successfully created your account")
-          
-            self.customers_account[customer_new_username]= customer_new_password
+            self.current_user_account = Useraccount(customer_username, customer_password)
+            self.customers_account[customer_username]= customer_password
             # print(self.customers_account)
-            k=CLI_packing(customer_new_username,customer_new_password)
-            k.book_package(customer_new_username)
-            # find_package()
+            k=CLI_packing(customer_username,customer_password)
+            k.book_package(customer_username)
+        
+            
 signup1 = Signup()
 # print(signup1.customers_account)
 signup1.create_account()

@@ -25,5 +25,18 @@ class User:
         User.users[self.first+""+self.last] = [self.userid]
         User.idCounter += 1
 
+'''Define Useraccount class'''
+class Useraccount:
+    users_account = {}
+    def __init__(self, username, password):
+        if (type(int(password)) is int):
+            raise TypeError("Password should not just be integers.")
+
+        if password.isalnum():
+            raise TypeError("Password should also contain other characters.")
+
+        self.username = username 
+        self.password = password
+        Useraccount.users_account[self.username]= self.password
       
        
