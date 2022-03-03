@@ -1,5 +1,5 @@
 
-from user import User
+from user import Useraccount
 class Packages:
     '''I am trying to make a dictionary and store id of customer with his package. I am keeping track of all the packages of the customer. Customer can add a new package or remove one.'''
     packages_for_customers={}
@@ -10,10 +10,10 @@ class Packages:
         self.package_type=package_type
         self.number_of_people=number_of_people
         self.price=price
-        if customer_username not in User.users.keys():
+        if customer_username not in Useraccount.users_account.keys():
             print("You have either typed wrong credentials or have not signed up yet!" )
         self.packages=[]
-        Packages.packages_for_customers[User.users[customer_username]]=[(package_name,package_type,number_of_people,price)]
+        Packages.packages_for_customers[Useraccount.users_account[customer_username]]=[(package_name,package_type,number_of_people,price)]
         Packages.packages_available.append(package_name)
         
     def addPackages(self,new_package):

@@ -29,11 +29,9 @@ class User:
 class Useraccount:
     users_account = {}
     def __init__(self, username, password):
-        if (type(int(password)) is int):
+        if (type(password) is int):
             raise TypeError("Password should not just be integers.")
 
-        if password.isalnum():
-            raise TypeError("Password should also contain other characters.")
 
         self.username = username 
         self.password = password
