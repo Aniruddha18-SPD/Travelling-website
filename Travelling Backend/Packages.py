@@ -17,6 +17,20 @@ class Packages:
             print("You have either typed wrong credentials or have not signed up yet!" )
         self.packages=[]
 
+        #Checking the type of the information taken from the user.
+
+        if type(package_name) != str:
+            raise TypeError('The package name should be a string.')
+
+        if type(package_type) != str:
+            raise TypeError('The package type should be a string.')
+
+        if type(number_of_people) != int:
+            raise TypeError('The number of people should be an integer.')
+
+        if type(price) != int:
+            raise TypeError('The price can only be in integer.')
+
         #Storing the customer_username in the key of dictionary packages_for_customers and the package information is the value.
 
         Packages.packages_for_customers[Useraccount.users_account[customer_username]]=[(package_name,package_type,number_of_people,price)]
