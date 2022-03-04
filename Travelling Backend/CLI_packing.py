@@ -30,20 +30,6 @@ class CLI_Packing:
 
         print(f'You have selected this package-, {user_choice_package_name} ')
 
-        #Checking the type of the information taken from the user.
-
-        if type(user_choice_package_name) != str:
-            raise TypeError('The package name should be a string.')
-
-        if type(user_choice_package_type) != str:
-            raise TypeError('The package type should be a string.')
-
-        if type(user_choice_number_of_people) != int:
-            raise TypeError('The number of people should be an integer.')
-
-        if type(user_choice_price) != int:
-            raise TypeError('The price can only be in integer.')
-
         #Checking if the package selected by customer is available with us or not in the packages_available_with_us.
 
         if package_customer_selected.package_name not in packages_available_with_us.keys():
