@@ -9,8 +9,7 @@ class User:
     def __init__(self, first, last, nationality, age, gender):
 
         '''initializing first name, last name, nationality, age and gender
-        User have a dictionary to store full name as key and their id as value
-        Users are given unique id
+        User have a list to store list containing full name and id
         '''
 
         if (type(first) is not str):
@@ -42,7 +41,7 @@ class Useraccount:
 
     def __init__(self, username, password):
         '''initializing username and password
-        Useraccount has a dictionary to store username as key and their password as value
+        Useraccount has a list that consists of the list containing username and password
         Users cannot use email that doesnot have a valid domain
         their email should end up using @gmail.com
         '''
