@@ -46,20 +46,19 @@ class Useraccount:
         Users cannot use email that doesnot have a valid domain
         their email should end up using @gmail.com
         '''
-        self.username = username
-        
-        if self.username[(len(self.username))-10:] != "@gmail.com":
+        if username[len(username)-10:] != "@gmail.com":
             raise TypeError("Username should have valid domain @gmail.com")
 
-        self.password = password
 
-        if len(self.password) < 10:
+        if len(password) < 10:
             raise TypeError("Password length should be atleast 10.")
 
-        if self.password.isalpha() or self.password.isdigit():
+        if password.isalpha() or password.isdigit():
             raise TypeError("Password should atleast be combination of strings and digits. To make it more strong, use special characters.")
         
-   
+        self.username = username
+        self.password = password
+        
         Useraccount.users_account[self.username]= self.password
 
 
