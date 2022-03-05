@@ -1,6 +1,9 @@
 ''' importing local files'''
-from user import *
-from CLI_packing import CLI_packing
+from user import User
+from user import Useraccount
+from CLI_packing import CLI_Packing
+
+
 
 '''Define Sign Up class'''
 '''class variables: customers_information- to store customers' name, age, nationality and gender so that we can use the data for demographic calculation in the future
@@ -46,7 +49,7 @@ class Signup:
                 #pass username and password to the current user account to store the credentials.
                 self.current_user_account = Useraccount(customer_username, customer_password) 
                 #pass username and password to package booking               
-                k=CLI_packing(customer_username,customer_password)
+                k= CLI_Packing(customer_username,customer_password)
                 k.book_package(customer_username)
                
             else:
@@ -66,7 +69,7 @@ class Signup:
             #pass username and password to the current user account & store them in dictionary and pass it to booking package
             self.current_user_account = Useraccount(customer_username, customer_password)
             Signup.customers_account[customer_username]= customer_password
-            k=CLI_packing(customer_username,customer_password)
+            k=CLI_Packing(customer_username,customer_password)
             k.book_package(customer_username)
         
 #create a sign up instance            
@@ -74,4 +77,3 @@ signup1 = Signup()
 #prompts to create new account or use login user credentials to instance 
 signup1.create_account()
 
-            

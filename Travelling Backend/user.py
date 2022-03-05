@@ -1,3 +1,4 @@
+
 # Define user class
 class User:
     '''dictionary to store users' full name and their unique id'''
@@ -37,7 +38,6 @@ class User:
 
 '''Define Useraccount class'''
 class Useraccount:
-    
     users_account = {}
 
     def __init__(self, username, password):
@@ -60,8 +60,3 @@ class Useraccount:
         self.password = password
         
         Useraccount.users_account[self.username]= self.password
-
-
-
-      
-       
