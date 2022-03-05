@@ -46,6 +46,10 @@ class Useraccount:
         Users cannot use email that doesnot have a valid domain
         their email should end up using @gmail.com
         '''
+        if (type(username) is not str):
+            raise TypeError("Username must be a string")
+        
+        
         if username[len(username)-10:] != "@gmail.com":
             raise TypeError("Username should have valid domain @gmail.com")
 
