@@ -49,8 +49,8 @@ class Signup:
                 #pass username and password to the current user account to store the credentials.
                 self.current_user_account = Useraccount(customer_username, customer_password) 
                 #pass username and password to package booking               
-                k= CLI_Packing(customer_username,customer_password)
-                k.book_package(customer_username)
+                customer_package= CLI_Packing(customer_username,customer_password)
+                customer_package.book_package(customer_username)
                
             else:
                 print("You have either typed wrong credentials or have not signed up yet!")
