@@ -1,10 +1,10 @@
-
 # Define user class
 class User:
     '''list to store users' full name and their unique id'''
     users = []
     '''iterable count of users to give each user a unique id'''
     idCounter = 1
+    personal_information = {}
 
     def __init__(self, first, last, nationality, age, gender):
 
@@ -32,8 +32,12 @@ class User:
         self.gender = gender
         self.userid = User.idCounter
         self.fullname = self.first+" "+self.last
-        User.users.append[self.fullname, self.userid]
+        User.users.append(self.fullname) 
+        User.users.append(self.userid)
         User.idCounter += 1
+
+        User.personal_information[self.first] = [self.last, self.nationality, self.age, self.gender]      #returning personal information 
+
 
 '''Define Useraccount class'''
 class Useraccount:
@@ -61,5 +65,7 @@ class Useraccount:
         
         self.username = username
         self.password = password
+        self.users_account = []
         
-        Useraccount.users_account.append[self.username, self.password]
+        Useraccount.users_account.append(self.username)
+        Useraccount.users_account.append(self.password)

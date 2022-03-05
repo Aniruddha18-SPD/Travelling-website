@@ -13,7 +13,7 @@ class Packages:
         self.package_type=package_type
         self.number_of_people=number_of_people
         self.price=price
-        if customer_username not in Useraccount.users_account.keys():
+        if customer_username not in Useraccount.users_account:
             print("You have either typed wrong credentials or have not signed up yet!" )
         self.packages=[]
 
@@ -33,7 +33,12 @@ class Packages:
 
         #Storing the customer_username in the key of dictionary packages_for_customers and the package information is the value.
 
-        Packages.packages_for_customers[Useraccount.users_account[customer_username]]=[(package_name,package_type,number_of_people,price)]
+        Packages.packages_for_customers[Useraccount.users_account[0]]=[(package_name,package_type,number_of_people,price)]
+        '''
+        syntax changed from Packages.packages_for_customers[Useraccount.users_account[customer_username]]=
+        [(package_name,package_type,number_of_people,price)]    to the one above ^    
+        because of format change on user.py from Sanjay. '''
+
         Packages.packages_available.append(package_name)
     
     #This adds the package in the list of packages to keep track of packages for the future. The customer can add as much packages as he/she wants.

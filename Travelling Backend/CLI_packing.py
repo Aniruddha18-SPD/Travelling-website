@@ -3,6 +3,7 @@ from Customer_rating import Rating
 from Packages_available_with_us import packages_available_with_us
 from Checkout import Checkout
 from user import Useraccount
+from user import User
 class CLI_Packing:
 
     '''This is a class which takes input from the user. It works as a constructor for the class Package which lets the user choose
@@ -23,7 +24,8 @@ class CLI_Packing:
         user_choice_package_type=input('Enter the package type you want:Natural / Cultural / Adventurous ?')
         user_choice_number_of_people=input('How many people are you travelling? ')
         user_choice_price=input('What is your budget? ')
-
+        user_choice_number_of_people = int(user_choice_number_of_people)
+        user_choice_price = int(user_choice_price)
         #The information of package from the customer is passed to the class Package to store the information for booking and future use.
 
         package_customer_selected=Packages(customer_username,user_choice_package_name,user_choice_package_type,user_choice_number_of_people,user_choice_price)
@@ -44,7 +46,18 @@ class CLI_Packing:
 
         print(f'Please make a payment and proceed to checkout!')
         #After checking all the informations provided by user with our package this helps the user to proceed towards the checkout and billing.
-        Checkout(Useraccount.users_account, Packages.packages_for_customers)
+        
+        checkout = Checkout(User.personal_information, Packages.packages_for_customers)     
+        checkout.return_total()
+        '''
+        Passing first name, last name, age, gender instead of email and password to checkout
+
+        '''
+        
+        # print(Checkout(Useraccount.users_account, Packages.packages_for_customers))
+        # print(User.personal_information)
+        # # print(Useraccount.users_account)
+        # print(Packages.packages_for_customers)
         
 
 
