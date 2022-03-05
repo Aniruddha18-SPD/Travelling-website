@@ -1,8 +1,8 @@
 # Define user class
 class User:
-    #dictionary to store users' full name and their unique id
+    '''dictionary to store users' full name and their unique id'''
     users = {}
-    # iterable count of users to give each user a unique id
+    '''iterable count of users to give each user a unique id'''
     idCounter = 1
 
     def __init__(self, first, last, nationality, age, gender):
@@ -61,7 +61,7 @@ class Useraccount:
         
    
         Useraccount.users_account[self.username]= self.password
-        
+
 
 
       
