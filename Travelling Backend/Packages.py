@@ -18,7 +18,8 @@ class Packages:
         self.packages=[]
 
         #Checking the type of the information taken from the user.
-
+        if type(customer_username) != str:
+            raise TypeError('The name of the customer should be string.')
         if type(package_name) != str:
             raise TypeError('The package name should be a string.')
 
@@ -33,7 +34,7 @@ class Packages:
 
         #Storing the customer_username in the key of dictionary packages_for_customers and the package information is the value.
 
-        Packages.packages_for_customers[Useraccount.users_account[0]]=[(package_name,package_type,number_of_people,price)]
+        Packages.packages_for_customers[Useraccount.users_account[1]]=[(package_name,package_type,number_of_people,price)]
         '''
         syntax changed from Packages.packages_for_customers[Useraccount.users_account[customer_username]]=
         [(package_name,package_type,number_of_people,price)]    to the one above ^    
@@ -45,14 +46,14 @@ class Packages:
 
     def addPackages(self,new_package):
         if type(new_package)!=str:
-            return 'The package name should be a string'
+            raise TypeError('The package name should be a string')
         self.packages.append(new_package)
 
     #Here the customer can remove the package if he/she doesn't like it. He can remove the package and select other packages of his wish.
     
     def removePackages(self,remove_package):
         if type(remove_package)!=str:
-            return 'The package name should be a string'
+            raise TypeError('The package name should be a string')
         if (self.packages.__contains__(remove_package)):
             self.packages.remove(remove_package)
     
