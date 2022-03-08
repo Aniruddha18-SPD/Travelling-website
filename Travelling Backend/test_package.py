@@ -58,4 +58,5 @@ class TestBook(unittest.TestCase):
         self.assertRaises(ValueError, Rating.updateRating, self, -1)
         self.assertRaises(ValueError, Rating.updateRating, self, 6)
 
-        
+if __name__ == "__main__":
+    unittest.main(failfast=True)
