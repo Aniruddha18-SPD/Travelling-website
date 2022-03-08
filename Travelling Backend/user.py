@@ -18,7 +18,7 @@ class User:
             raise TypeError("surname must be a string")
         if (type(nationality) is not str):
             raise TypeError("Nationality must be a string")
-        if (type(int(age)) is not int):
+        if not str(age).isdigit():
             raise TypeError("Age must be an integer")
         if int(age) < 10 or int(age) > 70:
             raise ValueError("No special accomodations for babies and adults")
@@ -28,7 +28,7 @@ class User:
         self.first = first
         self.last = last
         self.nationality = nationality
-        self.age = age
+        self.age = int(age)
         self.gender = gender
         self.userid = User.idCounter
         self.fullname = self.first+" "+self.last

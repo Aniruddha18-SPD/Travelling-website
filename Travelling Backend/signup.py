@@ -40,8 +40,10 @@ class Signup:
     def create_account(self):
         #gather username and password for the accounts
         self.user_account = input("Have you created your account yet? Type 'Y' for Yes or 'N' for No! ")
-        if self.user_account == 'Y':
-            print("You can go and find the best packages after submitting your credentials!")
+        if self.user_account == 'Y':      
+          print("You can go and find the best packages after submitting your credentials!")
+          correct_credentials = True
+          while correct_credentials:
             customer_username = input("Enter your username: ")
             customer_password = input("Enter your password: ")
             if self.customers_account[customer_username] == customer_password:
@@ -53,7 +55,8 @@ class Signup:
                 customer_package.book_package(customer_username)
                
             else:
-                print("You have either typed wrong credentials or have not signed up yet!")
+              print("You have either typed wrong credentials or have not signed up yet!")
+              correct_credentials = True
                           
         else:
             username = True
@@ -69,8 +72,8 @@ class Signup:
             #pass username and password to the current user account & store them in dictionary and pass it to booking package
             self.current_user_account = Useraccount(customer_username, customer_password)
             Signup.customers_account[customer_username]= customer_password
-            k=CLI_Packing(customer_username,customer_password)
-            k.book_package(customer_username)
+            customer_package = CLI_Packing(customer_username,customer_password)
+            customer_package.book_package(customer_username)
         
 #create a sign up instance            
 signup1 = Signup()
