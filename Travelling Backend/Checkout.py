@@ -24,10 +24,15 @@ class Checkout():
         print(self.pack_selected) 
         print(self.signup_arr)
             
-    
+    def retun_sum(self, range_of_money):
+        if type(range_of_money[0]) != int and type(range_of_money[1]) != int:
+            raise TypeError("The input must be a number") 
+        sum_val = range_of_money[1] + range_of_money[0] //  range_of_money[1] - range_of_money[0]
+        return sum_val
+
     def return_total(self):
         range_of_money = packages_available_with_us[self.new_arr[0][0][0]] 
-        total_charge_with_taxes = range_of_money[1] + range_of_money[0] //  range_of_money[1] - range_of_money[0]
+        total_charge_with_taxes = self.retun_sum(range_of_money)
         if total_charge_with_taxes > 0:
             trigger = self.check_validity(self.cardnumber())
         else:
