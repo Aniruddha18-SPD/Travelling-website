@@ -56,12 +56,13 @@ testUseraccount2 = Useraccount("pradeep@gmail.com", "iampradeep123")
 class TestUseraccount(unittest.TestCase):
   def test_argument_types(self):
     #username should be string
-    self.assertRaises(TypeError, Useraccount, 1, "iamanirudd123")
-    self.assertRaises(TypeError, Useraccount, 3, "iampradeep123")
-
+    
     #username should contain valid domain: @gmail.com
     self.assertRaises(TypeError, Useraccount, "aniruddha@mail.com", "iamanirudd123")
     self.assertRaises(TypeError, Useraccount, "pradeep@lamichhane.com", "iampradeep123")
+
+    self.assertRaises(TypeError, Useraccount, 1, "iamanirudd123")
+    self.assertRaises(TypeError, Useraccount, 3, "iampradeep123")
 
     #password should have length of atleast 10 digits or characters
     self.assertRaises(TypeError, Useraccount, "aniruddha@gmail.com", "iamanirud")
