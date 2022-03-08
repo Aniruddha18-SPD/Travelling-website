@@ -57,3 +57,5 @@ class TestBook(unittest.TestCase):
         # rating must be an int between 0 and 5
         self.assertRaises(ValueError, Rating.updateRating, self, -1)
         self.assertRaises(ValueError, Rating.updateRating, self, 6)
+
+        
