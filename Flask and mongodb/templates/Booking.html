@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+
+   <html>
+    <head>
+        <title>Submit a Package!</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+    </head>
+    <body>
+        <h1>Submit a Package!</h1>
+        <form method="post" action="/new">
+            <label for="type">Type:</label>
+          <input type="text" name="title" value="">
+
+
+          <label for="name">Name:</label>
+            <select id="package" name="package">
+              {% for package in packages%}
+                <option value='{{package}}'>{{ package }}</option>
+              {% endfor %}
+            </select>
+
+          <label for="number_of_people">Number_of_people:</label>
+          <input type="number" name="people" value="">
+
+          <label for="price">Price:</label>
+          <input type="number" name="price" value="">
+          
+          <input type="submit" value="Submit">
+        </form>
+        
+        <p><a href="/">Cancel</a></p>
+
+        {% if session %}
+          <p>Logged in as {{ session['username'] }}</p>
+        {% endif %}
+
+    </body>
+</html>
