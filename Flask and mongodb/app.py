@@ -25,10 +25,10 @@ mongo = PyMongo(app)
 
 # Package Route
 @app.route('/new', methods=['GET', 'POST'])
-def new_book():
+def new_package():
     if request.method == "GET":
         #render the form, with the genre list to populate the dropdown menu
-        return render_template('Booking.html', packages = packages)
+        return render_template('Booking.html', packages = Packages)
     else:
         #assign form data to variables
         type = request.form['type']
