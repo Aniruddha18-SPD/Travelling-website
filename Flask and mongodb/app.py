@@ -7,21 +7,45 @@ from flask_pymongo import PyMongo
 from model import Packages
 
 
-# -- Initialization section --
+# # -- Initialization section --
 app = Flask(__name__)
 
-# name of database
-app.config['MONGO_DBNAME'] = 'database'
+# # name of database
+# app.config['MONGO_DBNAME'] = 'database'
 
-# URI of database
-# Accessed from CONFIG VARS
+# # URI of database
+# # Accessed from CONFIG VARS
 secret_key = os.environ.get('MONGO_URI')
 app.config['MONGO_URI'] = secret_key
 
-#Initialize PyMongo
-mongo = PyMongo(app)
+# #Initialize PyMongo
+# mongo = PyMongo(app)
+
+@app.route('/')
+@app.route('/index')
+def index():
+    return render_template('index.html')
+
+@app.route('/package')
+def package():
+    return render_template('packages.html')
+
+#SIGNUP Route
+@app.route('/signup', methods=['GET', 'POST'])
+def singup():
+    if request.method == "POST":
+        username = request.form['username']
+        password = (request.form['password'])
+        confirm_password = (request.form['confirm password'])
+        if password != confirm_password:
+            return redirect('/index')
+        else:
+            return render_template('Booking.html')
 
 
+    
+    else:
+         return render_template('signup.html')
 
 # Package Route
 @app.route('/new', methods=['GET', 'POST'])
