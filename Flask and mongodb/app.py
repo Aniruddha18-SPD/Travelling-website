@@ -5,6 +5,7 @@ from flask import render_template
 from flask import request, redirect, session, url_for
 from flask_pymongo import PyMongo
 from model import Packages
+from packages_available_with_us import packages_available_with_us
 
 
 # -- Initialization section --
@@ -21,7 +22,14 @@ app.config['MONGO_URI'] = secret_key
 #Initialize PyMongo
 mongo = PyMongo(app)
 
-
+# INDEX Route
+@app.route('/')
+@app.route('/index')
+def index():
+    collection = mongo.db.library
+    collection.insert_many(packages_available_with_us)
+    name = collection.find({})
+    return render_template('index.html', name=name, packages=Packages,  label="All")
 
 # Package Route
 @app.route('/new', methods=['GET', 'POST'])
@@ -59,7 +67,7 @@ def my_packages():
         user = None
     #find entries whose user matches the session user
     name = collection.find({"user":user})
-    return render_template('index.html', name=name, packages=packages, label="My")
+    return render_template('index.html', name=name, packages=Packages, label="My")
 
 @app.route('/mypackages/<name>/remove_package')
 def remove_package(name):
