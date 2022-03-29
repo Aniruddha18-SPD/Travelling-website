@@ -25,10 +25,10 @@ mongo = PyMongo(app)
 
 # Package Route
 @app.route('/new', methods=['GET', 'POST'])
-def new_book():
+def new_package():
     if request.method == "GET":
-        #render the form, with the genre list to populate the dropdown menu
-        return render_template('Booking.html', packages = packages)
+        #render the form, with the packages list 
+        return render_template('Booking.html', packages = Packages)
     else:
         #assign form data to variables
         type = request.form['type']
@@ -49,6 +49,29 @@ def new_book():
 
         #redirect to the index route upon form submission
         return redirect('/')
+@app.route('/mypackages')
+def my_packages():
+    collection = mongo.db.library
+    #retrieve username from session data if present
+    if session:
+        user = session['username']
+    else:
+        user = None
+    #find entries whose user matches the session user
+    name = collection.find({"user":user})
+    return render_template('index.html', name=name, packages=packages, label="My")
+
+@app.route('/mypackages/<name>/remove_package')
+def remove_package(name):
+    collection=mongo.db.library
+    if session:
+        user=session['username']
+    else:
+        user=None
+    name = collection.find({"user":user})
+    collection.delete_one(name)
+    return redirect('/')
+
 
 
        
