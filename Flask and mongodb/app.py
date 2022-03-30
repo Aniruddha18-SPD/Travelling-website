@@ -41,7 +41,7 @@ def singup():
         if password != confirm_password:
             return redirect('/index')
         else:
-            return render_template('Booking.html')
+            return render_template('packages.html')
 
 
     
@@ -74,7 +74,8 @@ def new_package():
         collection.insert_one({"type":type, "name":name,  "price": price, "number_of_people": number_of_people})
 
         #redirect to the index route upon form submission
-        return redirect('/')
+        #return redirect('/')
+        return render_template('Booking.html', packages = packages)
 @app.route('/mypackages')
 def my_packages():
     collection = mongo.db.library
