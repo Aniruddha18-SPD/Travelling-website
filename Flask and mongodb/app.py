@@ -4,39 +4,57 @@ from flask import Flask
 from flask import render_template
 from flask import request, redirect, session, url_for
 from flask_pymongo import PyMongo
-from model import Packages
+from model import packages
 from packages_available_with_us import packages_available_with_us
 
 
-# -- Initialization section --
+# # -- Initialization section --
 app = Flask(__name__)
 
-# name of database
-app.config['MONGO_DBNAME'] = 'database'
+# # name of database
+#app.config['MONGO_DBNAME'] = 'database'
 
-# URI of database
-# Accessed from CONFIG VARS
-secret_key = os.environ.get('MONGO_URI')
-app.config['MONGO_URI'] = secret_key
+# # URI of database
+# # Accessed from CONFIG VARS
+#secret_key = os.environ.get('MONGO_URI')
+#app.config['MONGO_URI'] = secret_key
 
-#Initialize PyMongo
-mongo = PyMongo(app)
+# #Initialize PyMongo
+#mongo = PyMongo(app)
 
-# INDEX Route
 @app.route('/')
 @app.route('/index')
 def index():
-    collection = mongo.db.library
-    collection.insert_many(packages_available_with_us)
-    name = collection.find({})
-    return render_template('index.html', name=name, packages=Packages,  label="All")
+    return render_template('index.html')
+
+@app.route('/package')
+def package():
+    return render_template('packages.html')
+
+#SIGNUP Route
+@app.route('/signup', methods=['GET', 'POST'])
+def singup():
+    if request.method == "POST":
+        username = request.form['username']
+        password = (request.form['password'])
+        confirm_password = (request.form['confirm password'])
+        if password != confirm_password:
+            return redirect('/index')
+        else:
+            return render_template('Booking.html')
+
+
+    
+    else:
+         return render_template('signup.html')
+
 
 # Package Route
 @app.route('/new', methods=['GET', 'POST'])
 def new_package():
     if request.method == "GET":
         #render the form, with the packages list 
-        return render_template('Booking.html', packages = Packages)
+        return render_template('Booking.html', packages = packages)
     else:
         #assign form data to variables
         type = request.form['type']
@@ -67,7 +85,7 @@ def my_packages():
         user = None
     #find entries whose user matches the session user
     name = collection.find({"user":user})
-    return render_template('index.html', name=name, packages=Packages, label="My")
+    return render_template('index.html', name=name, packages=packages, label="My")
 
 @app.route('/mypackages/<name>/remove_package')
 def remove_package(name):
