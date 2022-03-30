@@ -1,1 +1,1 @@
-Packages=['Patan Durbar','Pasupati temple','Gorkha Durbar','Chandragiri','Muktinath temple','Phoksundo lake','Tilicho Lake','Kushma Bridge','Phewa Lake','Lumbini Stupa','ABC Nepal','Mt.Everest','Sundari Mai','Chiya Bagan','Trishuli river']
+packages=['Patan Durbar','Pasupati temple','Gorkha Durbar','Chandragiri','Muktinath temple','Phoksundo lake','Tilicho Lake','Kushma Bridge','Phewa Lake','Lumbini Stupa','ABC Nepal','Mt.Everest','Sundari Mai','Chiya Bagan','Trishuli river']

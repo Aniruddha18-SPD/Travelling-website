@@ -4,22 +4,25 @@ from flask import Flask
 from flask import render_template
 from flask import request, redirect, session, url_for
 from flask_pymongo import PyMongo
-from model import Packages
+from model import packages
+from packages_available_with_us import packages_available_with_us
 
 
 # # -- Initialization section --
 app = Flask(__name__)
 
 # # name of database
-# app.config['MONGO_DBNAME'] = 'database'
+#app.config['MONGO_DBNAME'] = 'database'
 
 # # URI of database
 # # Accessed from CONFIG VARS
 # secret_key = os.environ.get('MONGO_URI')
 # app.config['MONGO_URI'] = secret_key
+#secret_key = os.environ.get('MONGO_URI')
+#app.config['MONGO_URI'] = secret_key
 
 # #Initialize PyMongo
-# mongo = PyMongo(app)
+#mongo = PyMongo(app)
 
 @app.route('/')
 @app.route('/index')
@@ -36,7 +39,6 @@ def singup():
             return redirect('/signup')
         else:
             return render_template('login.html')
-
 
     
     else:
@@ -83,12 +85,13 @@ def package():
 
 
 
+
 # Package Route
 @app.route('/new', methods=['GET', 'POST'])
 def new_package():
     if request.method == "GET":
         #render the form, with the packages list 
-        return render_template('Booking.html', packages = Packages)
+        return render_template('Booking.html', packages = packages)
     else:
         #assign form data to variables
         type = request.form['type']
@@ -108,7 +111,8 @@ def new_package():
         collection.insert_one({"type":type, "name":name,  "price": price, "number_of_people": number_of_people})
 
         #redirect to the index route upon form submission
-        return redirect('/')
+        #return redirect('/')
+        return render_template('Booking.html', packages = packages)
 @app.route('/mypackages')
 def my_packages():
     collection = mongo.db.library
