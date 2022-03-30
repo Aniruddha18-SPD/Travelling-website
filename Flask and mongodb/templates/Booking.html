@@ -22,13 +22,35 @@
             <p class = "explanation">We’re the only booking system that’s built for a wide range of booking types. Nightly, daily, hourly, multi-day, or all of the above — we can handle it. Contact us and have a adventurous flight to Himalayas!!!</p><br>
             <br>
             <br><br>
-            <h1>Submit a Package!</h1>
+            <h1 class = "heading">
+                <span>S</span>
+                <span>e</span>
+                <span>l</span>
+                <span>e</span>
+                <span>c</span>
+                <span>t</span>
+                <span class = "space"></span>
+                <span>P</span>
+                <span>a</span>
+                <span>c</span>
+                <span>k</span>
+                <span>a</span>
+                <span>g</span>
+                <span>e</span>
+                <span class = "space"></span>
+                <span>f</span>
+                <span>o</span>
+                <span>r</span>
+                <span class = "space"></span>
+                <span>Y</span>
+                <span>o</span>
+                <span>u</span></h1>
             <form method="post" action="/new">
-                <label for="type">Type:</label>
+                <label for="type">Package_Type:</label>
               <input type="text" name="title" value="">
     
     
-              <label for="name">Name:</label>
+              <label for="name">Name_of_the_package:</label>
                 <select id="package" name="package">
                   {% for package in packages%}
                     <option value='{{package}}'>{{ package }}</option>
@@ -40,11 +62,11 @@
     
               <label for="price">Price:</label>
               <input type="number" name="price" value="">
-              
-              <input type="submit" value="Submit">
+              <br><br>
+              <input id='submit' type="submit" value="Submit">
             </form>
             
-            <p><a href="/">Cancel</a></p>
+            <p><a href="/">Cancel Booking</a></p>
     
             {% if session %}
               <p>Logged in as {{ session['username'] }}</p>
