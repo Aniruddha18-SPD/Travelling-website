@@ -16,6 +16,8 @@ app = Flask(__name__)
 
 # # URI of database
 # # Accessed from CONFIG VARS
+# secret_key = os.environ.get('MONGO_URI')
+# app.config['MONGO_URI'] = secret_key
 #secret_key = os.environ.get('MONGO_URI')
 #app.config['MONGO_URI'] = secret_key
 
@@ -26,11 +28,6 @@ app = Flask(__name__)
 @app.route('/index')
 def index():
     return render_template('index.html')
-
-@app.route('/package')
-def package():
-    return render_template('packages.html')
-
 #SIGNUP Route
 @app.route('/signup', methods=['GET', 'POST'])
 def singup():
@@ -39,14 +36,54 @@ def singup():
         password = (request.form['password'])
         confirm_password = (request.form['confirm password'])
         if password != confirm_password:
-            return redirect('/index')
+            return redirect('/signup')
         else:
-            return render_template('packages.html')
-
+            return render_template('login.html')
 
     
     else:
          return render_template('signup.html')
+        
+#LOGIN Route
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == "POST":
+        users = mongo.db.users
+        #search for username in database
+        login_user = users.find_one({'name': request.form['username']})
+
+        #if username in database
+        if login_user:
+            db_password = login_user['password']
+            #encode password
+            password = request.form['password'].encode("utf-8")
+            #compare username in database to username submitted in form
+            if bcrypt.checkpw(password, db_password):
+                #store username in session
+                session['username'] = request.form['username']
+                return redirect(url_for('index'))
+            else:
+                return 'Invalid username/password combination.'
+        else:
+            return 'User not found.'
+    else:
+        return render_template('login.html')
+
+#LOGOUT Route
+@app.route('/logout')
+def logout():
+    #clear username from session data
+    session.clear()
+    return redirect('/')
+
+
+
+
+@app.route('/package')
+def package():
+    return render_template('packages.html')
+
+
 
 
 # Package Route
