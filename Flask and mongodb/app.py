@@ -4,7 +4,7 @@ from flask import Flask
 from flask import render_template
 from flask import request, redirect, session, url_for
 from flask_pymongo import PyMongo
-from model import Packages
+from model import packages
 import secrets
 
 
@@ -69,7 +69,7 @@ def login():
             #compare username in database to username submitted in form
             if password == db_password:
                 session['username'] = request.form['email']
-                return redirect(url_for('index'))
+                return redirect(url_for('index2'))
             else:
                 return 'Invalid username/password combination.'
         else:
