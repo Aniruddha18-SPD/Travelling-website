@@ -28,14 +28,14 @@
     </section>
             
             <div class="content">
-                  <h1>Sign Up</h1>
+                  <h1>SELECT PACKAGE</h1>
                   <form method="post" action= "/new">
                     <h5>Package_Type</h5>
                     <input name="title" value="" type="text" placeholder="Cultural/Adventure/Natural?"/>
                     <h5>Name_of_the_package</h5>
                     <select id="package" name="package">
                         {% for package in packages%}
-                          <option value='{{package}}'>{{ package }}</option>
+                          <option class='style'value='{{package}}'>{{ package }}</option>
                         {% endfor %}
                       </select>
                     <h5>Number_of_people</h5>
@@ -44,9 +44,14 @@
                     <input name="price" value="" type="number" placeholder="How much worth package do you want to book?"/>
                     <input id='submit' type="submit" value="Submit">
                     
+                    
                   </form>
                   
                 </div>
+                <section class = "book" id = "book">
+                    <h2 class="heading2"><strong>Facilities available with us!!</strong></h2>
+                    <br><br>
+                </section>
                 <div class = "book" id = "book">
                     <div class="booking">
                       <div class="book_now">
