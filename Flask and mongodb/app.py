@@ -39,12 +39,16 @@ def singup():
         #if user not in database
         if not current_user:
             username = request.form['username']
+            firstname = request.form['firstname']
+            lastname = request.form['lastname']
+            gender = request.form['gender']
+            nationality = request.form['nationality']
             #encode password for hashing
             password = (request.form['password']).encode("utf-8")
             #add new user to database
-            users.insert_one({'name': username, 'password': password})
+            users.insert_one({'firstname':firstname, 'lastname':lastname, 'email': username, 'password': password, 'gender': gender, 'nationality': nationality})
             #store username in session
-            session['username'] = request.form['username']
+            session['username'] = request.form['firstname']
             return redirect('/login')
 
         else:
@@ -59,7 +63,7 @@ def login():
     if request.method == "POST":
         users = mongo.db.users
         #search for username in database
-        login_user = users.find_one({'name': request.form['email']})
+        login_user = users.find_one({'email': request.form['email']})
 
         #if username in database
         if login_user:
@@ -68,8 +72,13 @@ def login():
             password = request.form['password'].encode("utf-8")
             #compare username in database to username submitted in form
             if password == db_password:
+<<<<<<< HEAD
                 session['username'] = request.form['email']
                 return render_template('index2.html')
+=======
+                session['username'] = login_user['firstname']
+                return render_template('index2.html)
+>>>>>>> bc580118332f826751e0a06c2b35b99e4dac33a5
             else:
                 return 'Invalid username/password combination.'
         else:
@@ -146,6 +155,11 @@ def remove_package(name):
     name = collection.find({"user":user})
     collection.delete_one(name)
     return redirect('/')
+
+
+@app.route('/Experience')
+def experiences():
+    return render_template('Experience.html')
 
 
 
