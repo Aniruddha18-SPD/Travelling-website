@@ -1,42 +1,4 @@
 
-input{
-    background-color:blue;
-}
-
-
-#submit {
-    width: 50%;
-    padding: 12px 20px;
-    margin: 4px 2px;
-    box-sizing: border-box;
-    border: 1px solid rgb(94, 94, 94);
-    border-radius: 4px;
-    background-color:lightblue;
-    position: relative;
-    left: 50%;
-    top:50%;
-    margin-right: -50%;
-    transform: translate(-50%);
-    
-  }
-#package{
-    box-sizing: border-box;
-    border: 1px solid rgb(94, 94, 94);
-    border-radius: 4px;
-    background-color:white;
-    position: relative;
-    width: 10%;
-    height:1000%;
-    padding: 12px 20px;
-    margin: 4px 2px;
-}
-  
-body{
-    background-color:#a9d3f9;
-  }
-  :root{
-    --black:black;
-  }
   *{
     font-family: "Nunito",sans-serif;
     margin: 0;
@@ -48,80 +10,77 @@ body{
     text-decoration: none;
     transition:all .4s linear;
   }
-  section{
-    padding:0rem 9%;
+  .signup{
+    height:100vh;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    color: black;
+    background-color:whitesmoke;
+    
   }
-  .heading{
-    text-align: center;
-    padding:2.5rem 0
+  .header {
+    position: absolute;
+    top: 50px;
+    color:wheat;
+    font-size:20px;
+    
   }
-  .heading span{
-    font-size:3.5 rem;
-    background:white;
-    color:black;
-    border-radius: .5rem;
-    padding: .1rem 0.5rem;
-    display: inline block;
+  .signup a{
+    background-color: black;
+    width: 100%;
+    margin-bottom: 100px;
+    height: 100px;
+    margin-bottom: 100px;
+    padding-top:10px;
+    
   }
-  .heading span.space{
-    background:none;
+
+
+  .signup img{
+    border-radius:50%;
+    height: 10px;
+    margin-bottom: 200px;
+    
   }
-  .packages .box-container{
-    display:flex;
-    flex-wrap:wrap;
-    gap:1rem;
-    padding-left:40px;
-  }
-  .packages .box-container .box{
-    box-shadow: 0 1rem 2rem white; 
-  }
-  .packages .box-container .box img{
-      width:  200px;
-      height: 200px;
-      object-fit: cover;
-  }
-  .packages .box-container .box .content{
-    padding:0.1rem;
-  }
-  .packages .box-container .box .content h2{
-    font-size:100 px;
-    color:#181617;
-  }
-  
-  .packages .box-container .box .content p{
-    font-size:2 rem;
-    color:#666;
-    padding:0.2rem 0;
+  .content{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 5px solid black;
+    margin-top: -50px;
+    
+    
   }
   
-  .packages .box-container .box .content .price{
-    font-size:1.3rem;
-    color:#181617;
-    padding-top: 0.1rem;
-    padding:0.2rem 0;
+  .content>h1{
+    font-weight: 500;
+    margin-bottom: 20px;
   }
-  .packages .box-container .box .content .price span{
-    color:#666;
-    font-size:1.1rem;
-    text-decoration:grey;
-    padding-top: 0.1rem;
+  
+  .content h5{
+    font-weight: 500;
+    margin-bottom: 20px;
+    font-size: 18px;
+    
   }
-  .btn{
-    text-align: center;
-    font-size:1 rem;
-    background:orange;
-    border-radius: .3rem;
-    padding-top: 0.1rem;
-    padding:0.2rem 0;
+  
+  .content>form>input{
+    height: 30px;
+    margin-bottom:10px;
+    background-color: white;
+    width: 98%;
+    outline:none;
+    border: 2px solid black;
+    
   }
-  .checked {
-    color: orange;
+  
+  .content p{
+    margin-top: 15px;
+    font-size: 15px;
   }
-  .price span{
-     -webkit-text-decoration-line: line-through; 
-     text-decoration-line: line-through; 
-  }
-  .book .heading2{
+.book .heading2{
     text-align:center;
     font-size:2.2rem;
     color:#181617;
@@ -153,20 +112,12 @@ body{
       height: 200px;
       object-fit: cover;
   }
-  .book .booking .book_now .content  p{
+  .book .booking .book_now .x  p{
     text-align: center;
     padding:1 rem;
   }
-  .book .booking .book_now .content  h2{
+  .book .booking .book_now .x  h2{
     text-align: center;
     padding:1 rem;
   }
-  .Contact .Email{
-    font-size:20px;
-    text-align:center;
-    color:#181617;
-  }
-  .Contact .cont{
-    text-align:center;
-    padding:1rem;
-  }
+ 
