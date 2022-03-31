@@ -73,7 +73,7 @@ def login():
             #compare username in database to username submitted in form
             if password == db_password:
                 session['username'] = login_user['firstname']
-                return redirect(url_for('index2'))
+                return render_template('index2.html)
             else:
                 return 'Invalid username/password combination.'
         else:
