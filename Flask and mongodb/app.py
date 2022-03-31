@@ -93,12 +93,13 @@ def package():
 
 
 
+
 # Package Route
 @app.route('/new', methods=['GET', 'POST'])
 def new_package():
     if request.method == "GET":
         #render the form, with the packages list 
-        return render_template('Booking.html', packages = Packages)
+        return render_template('Booking.html', packages = packages)
     else:
         #assign form data to variables
         type = request.form['type']
@@ -118,7 +119,8 @@ def new_package():
         collection.insert_one({"type":type, "name":name,  "price": price, "number_of_people": number_of_people})
 
         #redirect to the index route upon form submission
-        return redirect('/')
+        #return redirect('/')
+        return render_template('Booking.html', packages = packages)
 @app.route('/mypackages')
 def my_packages():
     collection = mongo.db.library
