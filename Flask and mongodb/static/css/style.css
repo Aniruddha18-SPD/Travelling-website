@@ -10,13 +10,15 @@
     text-decoration: none;
     transition:all .4s linear;
   }
+
+ 
   .signup{
     height:100vh;
     display: flex;
     flex-direction:column;
     align-items: center;
     color: black;
-    background-color:whitesmoke;
+    
     
   }
   .header {
@@ -36,15 +38,15 @@
     
   }
 
-
   .signup img{
     border-radius:50%;
-    height: 10px;
+    height: 100px;
     margin-bottom: 200px;
     
   }
+
   .content{
-    width: 300px;
+    width: 500px;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -55,21 +57,23 @@
   }
   
   .content>h1{
-    font-weight: 500;
+    font-weight: 100;
     margin-bottom: 20px;
+    text-align:center;
   }
   
   .content h5{
     font-weight: 500;
     margin-bottom: 20px;
     font-size: 18px;
+    text-align:center;
     
   }
   
   .content>form>input{
-    height: 30px;
+    height: 40px;
     margin-bottom:10px;
-    background-color: white;
+    background-color: whitesmoke;
     width: 98%;
     outline:none;
     border: 2px solid black;
@@ -104,13 +108,14 @@
     padding-left:20px;
   }
   .book .booking .book_now{
-    box-shadow: 0 1rem 2rem whitesmoke;
+    box-shadow: 0 1rem 2rem wheat;
     padding:25px;  
   }
   .book .booking .book_now img{ 
       width:  200px;
       height: 200px;
       object-fit: cover;
+      margin-bottom:0px;
   }
   .book .booking .book_now .x  p{
     text-align: center;

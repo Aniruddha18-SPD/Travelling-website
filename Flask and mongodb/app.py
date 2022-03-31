@@ -4,7 +4,7 @@ from flask import Flask
 from flask import render_template
 from flask import request, redirect, session, url_for
 from flask_pymongo import PyMongo
-from model import Packages
+from model import packages
 import secrets
 
 
