@@ -31,15 +31,15 @@
                   <h1>SELECT PACKAGE</h1>
                   <form method="post" action= "/new">
                     <h5>Package_Type</h5>
-                    <input name="title" value="" type="text" placeholder="Cultural/Adventure/Natural?"/>
+                    <input name="types" value="" type="text" placeholder="Cultural/Adventure/Natural?"/>
                     <h5>Name_of_the_package</h5>
-                    <select id="package" name="package">
+                    <select id="package" name="name">
                         {% for package in packages%}
                           <option class='style'value='{{package}}'>{{ package }}</option>
                         {% endfor %}
                       </select>
                     <h5>Number_of_people</h5>
-                    <input name="people" value="" type="number" placeholder="How many people are traveling?"/>
+                    <input name="number_of_people" value="" type="number" placeholder="How many people are traveling?"/>
                     <h5>Price</h5>
                     <input name="price" value="" type="number" placeholder="How much worth package do you want to book?"/>
                     <input id='submit' type="submit" value="Submit">
