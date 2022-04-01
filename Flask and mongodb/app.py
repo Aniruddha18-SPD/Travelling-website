@@ -72,13 +72,13 @@ def login():
             password = request.form['password'].encode("utf-8")
             #compare username in database to username submitted in form
             if password == db_password:
-<<<<<<< HEAD
+
                 session['username'] = request.form['email']
                 return render_template('index2.html')
-=======
+
                 session['username'] = login_user['firstname']
-                return render_template('index2.html)
->>>>>>> bc580118332f826751e0a06c2b35b99e4dac33a5
+                return render_template('index2.html')
+
             else:
                 return 'Invalid username/password combination.'
         else:

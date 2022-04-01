@@ -55,6 +55,9 @@
     
     
   }
+  .content.style{
+      height:100px;
+  }
   
   .content>h1{
     font-weight: 100;
