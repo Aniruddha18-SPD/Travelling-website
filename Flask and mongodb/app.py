@@ -183,12 +183,12 @@ def experiences():
         if sum(validlist)% 10 == 0:
             credit_check = True
             print("This is a VALID CARD!")
-            return "RIGHT"
+            return render_template('popup.html')
         
         else:
             credit_check = False
             print('INVALID CARD NUMBER')
-            return "WRONG"
+            return render_template('repeat_transaction.html')
 
 
 
