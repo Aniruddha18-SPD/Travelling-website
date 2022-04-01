@@ -94,6 +94,10 @@ def logout():
 @app.route('/package')
 def package():
     return render_template('packages.html')
+    
+@app.route('/people_exp')
+def people_exp():
+    return render_template('people_exp.html')
 
 
 
