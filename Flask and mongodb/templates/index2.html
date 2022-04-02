@@ -12,20 +12,20 @@
 <body>
 	<div class="back">
 		<div class="navigationbar">
+            <a href="{{ url_for('index') }}">
 
 			<img src="static/photos/logo.jpg" class='logo'>
+            </a>
               <div id='nep'>
                 <p>
-                    <h1> <strong> NATURALLY NEPAL, ONCE IS NOT ENOUGH! <br>
-                        YOU ARE WELCOME, {{session['username']}}
+                    <h1> <strong> NATURALLY NEPAL, ONCE IS NOT ENOUGH! <br><br>
+                        Welcome to our travel agency, {{session['username']}}!
                     </strong></h1>
                 </p>
                </div>
             <ul>
-            <li> <a href='$'>About Us</a></li>
             <li> <a href='/people_exp'>Experiences</a></li>
             <li> <a href='/package'>Booking</a></li>
-            <li> <a href='$'>Contact Us</a></li>
             <li> <a href='/logout'>Log Out</a></li>
 
             </ul>

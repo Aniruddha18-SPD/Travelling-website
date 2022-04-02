@@ -6,7 +6,7 @@
 .back{
     width: 100%;
     height: 100vh;
-    background-image: url(static/photos/back_copy.jpg);
+    background-image: url("https://image.shutterstock.com/image-photo/high-mountain-climbers-260nw-15889564.jpg");
     background-size: cover;
     background-position: center;
  }

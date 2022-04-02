@@ -34,7 +34,7 @@ def singup():
     if request.method == "POST":
         users = mongo.db.users
         #search for username in database
-        current_user = users.find_one({'name': request.form['username']})
+        current_user = users.find_one({'email': request.form['username']})
 
         #if user not in database
         if not current_user:
@@ -105,30 +105,30 @@ def people_exp():
 # Package Route
 @app.route('/new', methods=['GET', 'POST'])
 def new_package():
-    if request.method == "GET":
+    if session:
+        if request.method == "GET":
         #render the form, with the packages list 
-        return render_template('Booking.html', packages = packages)
-    else:
+            return render_template('Booking.html', packages = packages)
+        else:
         #assign form data to variables
-        type = request.form['type']
-        name = request.form['name']
-        price = request.form['price']
-        number_of_people=request.form['number_of_people']
+            type = request.form['type']
+            name = request.form['name']
+            price = request.form['price']
+            number_of_people=request.form['number_of_people']
 
         #retrieve username from session data if present
-        if session:
-            user = session['username']
-        else:
-            user = None
+        
 
-        collection = mongo.db.library
+            collection = mongo.db.library
         
         #insert an entry to the database using the variables declared above
-        collection.insert_one({"type":type, "name":name,  "price": price, "number_of_people": number_of_people})
+            collection.insert_one({"type":type, "name":name,  "price": price, "number_of_people": number_of_people})
 
         #redirect to the index route upon form submission
         #return redirect('/')
-        return render_template('Booking.html', packages = packages)
+            return render_template('Booking.html', packages = packages)
+    else:
+        return render_template('login.html')            
 @app.route('/mypackages')
 def my_packages():
     collection = mongo.db.library
