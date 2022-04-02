@@ -70,10 +70,10 @@ def login():
             db_password = login_user['password']
             #encode password
             password = request.form['password'].encode("utf-8")
-            #compare username in database to username submitted in form
+            #compare password in database to password submitted in form
             if password == db_password:
                 session['username'] = login_user['firstname']
-                return render_template('index2.html')
+                return render_template('index.html')
             else:
                 return 'Invalid username/password combination.'
         else:
