@@ -46,6 +46,16 @@ def singup():
             #encode password for hashing
             password = (request.form['password']).encode("utf-8")
             confirm_password = (request.form['confirm password']).encode("utf-8")
+            if username[len(username)-10:] != "@gmail.com":
+                raise TypeError("Username should have valid domain @gmail.com")
+            if firstname.isdigit():
+                raise TypeError("First name should be string!")
+            if lastname.isdigit():
+                raise TypeError("Last name should be string!")
+            if gender.isdigit():
+                raise TypeError("Gender should be string!")
+            if nationality.isdigit():
+                raise TypeError("Nationality should be string!")            
             if password != confirm_password:
                 return render_template('signup.html', error = 'Re-enter the same password!' )
             #add new user to database
