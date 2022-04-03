@@ -31,6 +31,12 @@
  
         <br>
         <input type="submit" value="Log In"/>
+
+        {% if error1 %}
+            <p style="color:red;"> {{error1}}</p>
+        {% else %}
+            <p style="color:red;"> {{error2}}</p>
+        {% endif %}
         
       </form>
       <p>

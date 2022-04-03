@@ -45,6 +45,19 @@ def singup():
             nationality = request.form['nationality']
             #encode password for hashing
             password = (request.form['password']).encode("utf-8")
+            confirm_password = (request.form['confirm password']).encode("utf-8")
+            if username[len(username)-10:] != "@gmail.com":
+                raise TypeError("Username should have valid domain @gmail.com")
+            if firstname.isdigit():
+                raise TypeError("First name should be string!")
+            if lastname.isdigit():
+                raise TypeError("Last name should be string!")
+            if gender.isdigit():
+                raise TypeError("Gender should be string!")
+            if nationality.isdigit():
+                raise TypeError("Nationality should be string!")            
+            if password != confirm_password:
+                return render_template('signup.html', error = 'Re-enter the same password!' )
             #add new user to database
             users.insert_one({'firstname':firstname, 'lastname':lastname, 'email': username, 'password': password, 'gender': gender, 'nationality': nationality})
             #store username in session
@@ -52,7 +65,8 @@ def singup():
             return redirect('/login')
 
         else:
-            return 'Username already registered.  Try logging in.'
+            return render_template('signup.html', registration= 'User already exists!' )
+            
     
     else:
         return render_template('signup.html')
@@ -70,14 +84,14 @@ def login():
             db_password = login_user['password']
             #encode password
             password = request.form['password'].encode("utf-8")
-            #compare username in database to username submitted in form
+            #compare password in database to password submitted in form
             if password == db_password:
                 session['username'] = login_user['firstname']
-                return render_template('index2.html')
+                return render_template('index.html')
             else:
-                return 'Invalid username/password combination.'
+                return render_template('login.html', error1 = 'Invalid username or password combination.')
         else:
-            return 'User not found.'
+            return render_template('login.html', error2 = 'User not found!')
     else:
         return render_template('login.html')
 
@@ -111,10 +125,18 @@ def new_package():
             return render_template('Booking.html', packages = packages)
         else:
         #assign form data to variables
-            type = request.form['type']
+            types = request.form['type']
             name = request.form['name']
             price = request.form['price']
             number_of_people=request.form['number_of_people']
+            if types.isdigit():
+                raise TypeError("The input must be string")
+            if types.isdigit():
+                raise TypeError('The input must be a string')
+            if type(price)!= int:
+                raise TypeError('The input must be an integer')
+            if type(number_of_people)!= int:
+                raise TypeError('The input must be an integer')
 
         #retrieve username from session data if present
         
@@ -122,7 +144,7 @@ def new_package():
             collection = mongo.db.library
         
         #insert an entry to the database using the variables declared above
-            collection.insert_one({"type":type, "name":name,  "price": price, "number_of_people": number_of_people})
+            collection.insert_one({"type":types, "name":name,  "price": price, "number_of_people": number_of_people})
 
         #redirect to the index route upon form submission
         #return redirect('/')
