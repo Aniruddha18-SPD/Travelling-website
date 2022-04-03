@@ -1,2 +1,4 @@
 # Travelling-website
-This is the first repository
+Run -- flask run
+You cannot book packages without being logged in. Book now redirects to log in if not logged in.
+Sign up if you are logging in for the first time.
