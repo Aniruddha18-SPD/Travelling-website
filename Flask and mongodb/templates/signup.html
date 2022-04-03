@@ -40,6 +40,9 @@
         <input name="nationality" value="" type="text" placeholder="Your Nationality"/>
         <br>
         <input type="submit" value="Sign Up"/>
+        {% if registration %}
+            <p style="color:red;">Email already enrolled. Please type in the new Email!</p>
+        {% endif %}
         
       </form>
       <p>
