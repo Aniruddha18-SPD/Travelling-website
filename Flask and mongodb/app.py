@@ -125,18 +125,25 @@ def new_package():
             return render_template('Booking.html', packages = packages)
         else:
         #assign form data to variables
-            type = request.form['type']
+            types = request.form['type']
             name = request.form['name']
             price = request.form['price']
             number_of_people=request.form['number_of_people']
 
-        #retrieve username from session data if present
-        
+            if types.isdigit():
+                raise TypeError("Types should be string!")
+            if name.isdigit():
+                raise TypeError("name should be string!")
+            if type(price) != int:
+                raise TypeError("The price must be a number")
+            if type(number_of_people) != int:
+                raise TypeError("The input must be a number")
+
 
             collection = mongo.db.library
         
         #insert an entry to the database using the variables declared above
-            collection.insert_one({"type":type, "name":name,  "price": price, "number_of_people": number_of_people})
+            collection.insert_one({"type":types, "name":name,  "price": price, "number_of_people": number_of_people})
 
         #redirect to the index route upon form submission
         #return redirect('/')
