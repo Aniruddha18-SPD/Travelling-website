@@ -45,6 +45,9 @@ def singup():
             nationality = request.form['nationality']
             #encode password for hashing
             password = (request.form['password']).encode("utf-8")
+            confirm_password = (request.form['confirm password']).encode("utf-8")
+            if password != confirm_password:
+                return render_template('signup.html', error = 'Re-enter the same password!' )
             #add new user to database
             users.insert_one({'firstname':firstname, 'lastname':lastname, 'email': username, 'password': password, 'gender': gender, 'nationality': nationality})
             #store username in session
