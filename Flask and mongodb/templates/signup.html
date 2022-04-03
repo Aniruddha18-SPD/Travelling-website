@@ -42,6 +42,8 @@
         <input type="submit" value="Sign Up"/>
         {% if registration %}
             <p style="color:red;">Email already enrolled. Please type in the new Email!</p>
+        {% else %}
+            <p style="color:red;">{{error}}</p>
         {% endif %}
         
       </form>
