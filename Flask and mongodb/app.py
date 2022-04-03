@@ -52,7 +52,8 @@ def singup():
             return redirect('/login')
 
         else:
-            return 'Username already registered.  Try logging in.'
+            return render_template('signup.html', registration= 'User already exists!' )
+            
     
     else:
         return render_template('signup.html')
@@ -75,9 +76,9 @@ def login():
                 session['username'] = login_user['firstname']
                 return render_template('index.html')
             else:
-                return 'Invalid username/password combination.'
+                return render_template('login.html', error1 = 'Invalid username or password combination.')
         else:
-            return 'User not found.'
+            return render_template('login.html', error2 = 'User not found!')
     else:
         return render_template('login.html')
 
